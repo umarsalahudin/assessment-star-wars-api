@@ -27,6 +27,7 @@ function* getStarWarsApi(action: ReturnType<typeof actions.getStarWarsApi>) {
   yield put(slicesActions.setIsLoading(false))
 }
 
+
 export function* starWarsSaga() {
   yield takeLatest(actions.getStarWarsApi.type, getStarWarsApi)
 }

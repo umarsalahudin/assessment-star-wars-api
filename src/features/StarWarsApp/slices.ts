@@ -3,17 +3,19 @@ import { PayloadAction, combineReducers, createSlice } from '@reduxjs/toolkit'
 import { clearStore } from './actions'
 import { StarWarsPeopleApi } from './type'
 
-
+type Payload={
+  count:number
+  results:Array<StarWarsPeopleApi>
+}
 
 const getStarWarsPeople = createSlice({
   name: 'getStarWarsPeople',
-  initialState: [] as Array<StarWarsPeopleApi>,
+  initialState:{} as Payload,
   reducers: {
-    setStarWarsPeople: (state, { payload }: PayloadAction<Array<StarWarsPeopleApi>>) => payload,
-    
+    setStarWarsPeople: (state, { payload }: PayloadAction<any>) => payload,
   },
   extraReducers: {
-    [clearStore.type]: () => [],
+    [clearStore.type]: () => {},
   },
 })
 
@@ -23,6 +25,7 @@ const isLoading = createSlice({
   initialState: false,
   reducers: {
     setIsLoading: (state, { payload }: PayloadAction<boolean>) => payload,
+   
   },
   extraReducers: {
     [clearStore.type]: () => false,

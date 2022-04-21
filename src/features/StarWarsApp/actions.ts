@@ -1,6 +1,7 @@
 import { createAction } from '@reduxjs/toolkit'
-import { Page } from './type'
+import { StarWarsApiPayload,SearchStarWarsPayload } from './type'
 
-export const getStarWarsApi = createAction<Page>('getStarWarsApi')
+export const getStarWarsApi = createAction<StarWarsApiPayload>('getStarWarsApi')
+export const searchStarWarsPayload = createAction<SearchStarWarsPayload>('searchStarWarsPayload')
 
 export const clearStore = createAction('clearStore')
