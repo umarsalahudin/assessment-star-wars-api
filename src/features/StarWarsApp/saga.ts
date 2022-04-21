@@ -12,12 +12,14 @@ function* getStarWarsApi(action: ReturnType<typeof actions.getStarWarsApi>) {
   yield put(slicesActions.setIsLoading(true))
 
   try {
+    const {
+      payload,
+    } = action
     const {data} : AxiosResponse<Array<StarWarsPeopleApi>>= yield getUtil(
-      `${API.People}`
+      `${API.People}?page=${payload.page}`
     )
-    console.log(data,'data====> hhehrhehr');
-    const {results}:any = data || []
-    yield put(slicesActions.setStarWarsPeople(results))
+    
+    yield put(slicesActions.setStarWarsPeople(data))
   } catch (err) {
     console.error(err)
   }
