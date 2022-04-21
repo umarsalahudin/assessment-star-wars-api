@@ -13,7 +13,9 @@ export const LayoutWrapper = ({ children }: Props) => (
     <Content style={{ padding: "0px 50px" }}>
       <div className="site-layout-content ">
         <Row justify="center">
-          <Col span={18}>{children}</Col>
+          <Col span={18} lg={20} sm={24}>
+            {children}
+          </Col>
         </Row>
       </div>
     </Content>
